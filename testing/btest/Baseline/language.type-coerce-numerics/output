@@ -1,0 +1,2 @@
+error in count and /Users/tim/Desktop/projects/zeek/testing/btest/language/type-coerce-numerics.zeek, line 24: over-promotion of arithmetic value (count and -5)
+error in int and /Users/tim/Desktop/projects/zeek/testing/btest/language/type-coerce-numerics.zeek, line 28: overflow promoting from unsigned to signed arithmetic value (int and 9223372036854775808)

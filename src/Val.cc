@@ -3621,7 +3621,13 @@ Val* check_and_promote(Val* v, const BroType* t, int is_init, const Location* ex
 	Val* promoted_v;
 	switch ( it ) {
 	case TYPE_INTERNAL_INT:
-		if ( t_tag == TYPE_INT )
+		if ( vit == TYPE_INTERNAL_UNSIGNED && v->InternalUnsigned() > static_cast<bro_uint_t>(INT64_MAX) )
+			{
+			t->Error("overflow promoting from unsigned to signed arithmetic value", v, 0, expr_location);
+			Unref(v);
+			return 0;
+			}
+		else if ( t_tag == TYPE_INT )
 			promoted_v = val_mgr->GetInt(v->CoerceToInt());
 		else if ( t_tag == TYPE_BOOL )
 			promoted_v = val_mgr->GetBool(v->CoerceToInt());
