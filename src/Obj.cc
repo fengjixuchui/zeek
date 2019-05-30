@@ -211,7 +211,7 @@ void BroObj::DoMsg(ODesc* d, const char s1[], const BroObj* obj2,
 	if ( obj2 && obj2->GetLocationInfo() != &no_location &&
 		 *obj2->GetLocationInfo() != *GetLocationInfo() )
 		loc2 = obj2->GetLocationInfo();
-	else if (expr_location)
+	else if ( expr_location )
 		loc2 = expr_location;
 
 	reporter->PushLocation(GetLocationInfo(), loc2);
